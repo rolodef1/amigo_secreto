@@ -18,15 +18,13 @@
 							@if(count($grupos)>0)
 							<tr>
 								<th>Nombre</th>
-								<th>Minimo</th>
-								<th>Maximo</th>
+								<th>Precio base del regalo</th>
 								<th>Acciones</th>
 							</tr>
 							@foreach($grupos as $grupo)
 							<tr>
 								<td>{{$grupo->nombre}}</td>
 								<td>{{$grupo->minimo}} USD</td>
-								<td>{{$grupo->maximo}} USD</td>
 								<td><a href="{{ route('grupos.edit',[$grupo->id]) }}">Editar</a></td>
 							</tr>
 							@endforeach

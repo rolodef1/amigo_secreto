@@ -10,7 +10,7 @@ class Grupo extends Model
 
 	//protected $guarded = ['user_id','geom','coordenadas'];
 
-	protected $fillable = ['nombre','minimo','maximo'];
+	protected $fillable = ['nombre','minimo'];
 
 	public function user()
 	{

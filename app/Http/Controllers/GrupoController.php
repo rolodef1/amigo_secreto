@@ -58,18 +58,9 @@ class GrupoController extends Controller
 
 	protected function validator(array $data)
 	{			
-		$minimo = 10;	
-		if($data['minimo'] > 0){
-			if($data['minimo'] < 10){
-				$minimo = 10;
-			}else{
-				$minimo = $data['minimo'];
-			}	
-		}
 		return Validator::make($data, [     
 			'nombre' => "required|max:50",
 			'minimo' => "required|numeric|min:0",
-			'maximo' => "required|numeric|min:$minimo"
 			]);
 	}
 }

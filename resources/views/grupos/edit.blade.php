@@ -40,18 +40,6 @@
 							</div>
 						</div>
 
-						<div class="form-group{{ $errors->has('maximo') ? ' has-error' : '' }}">
-							<label for="maximo" class="col-md-4 control-label">Maximo</label>
-							<div class="col-md-6">
-								<input id="maximo" type="number" min="10" class="form-control" name="maximo" value="{{$grupo->maximo}}" required autofocus>
-								@if ($errors->has('maximo'))
-								<span class="help-block">
-									<strong>{{ $errors->first('maximo') }}</strong>
-								</span>
-								@endif
-							</div>
-						</div>
-
 						<div class="form-group">
 							<div class="col-md-3 col-md-offset-3" style="float: left;">
 								<button type="button" class="btn btn-success" id="btnGuardar">

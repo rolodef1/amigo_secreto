@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\NotificarAmigoSecreto;
 use App\User;
 use App\Grupo;
 use App\Integrante;
@@ -100,8 +102,12 @@ class IntegranteController extends Controller
 				$integrante = Integrante::find($emisor_id);
 				$integrante->entrega_a = $receptor_id;
 				$integrante->save();
+				Mail::to($integrante->email)->send(new NotificarAmigoSecreto($integrante)); 
 			}
+			$grupo->sorteado = true;
+			$grupo->save();
 		}
+		return redirect()->route('integrantes.index',[$grupo_id]);
 	}
 
 

@@ -17,7 +17,7 @@ class CreateGrupoTable extends Migration
             $table->increments('id');
             $table->string('nombre');
             $table->integer('minimo');
-            $table->integer('maximo');
+            $table->boolean('sorteado')->default(false);
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
