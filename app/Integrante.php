@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Integrante extends Model
 {
-	protected $table = 'Integrantes';
+	protected $table = 'integrantes';
 
 	protected $fillable = ['nombre','email'];
 
