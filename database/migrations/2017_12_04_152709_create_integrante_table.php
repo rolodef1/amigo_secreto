@@ -19,9 +19,12 @@ class CreateIntegranteTable extends Migration
             $table->string('email');
             $table->integer('grupo_id');
             $table->integer('entrega_a')->default(0);
-            $table->foreign('grupo_id')->references('id')->on('grupos');
             $table->timestamps();
         });
+
+        Schema::table('integrantes', function($table) {
+         $table->foreign('grupo_id')->references('id')->on('grupos')->onDelete('cascade');
+     });
     }
 
     /**
