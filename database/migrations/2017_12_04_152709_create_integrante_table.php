@@ -17,14 +17,11 @@ class CreateIntegranteTable extends Migration
             $table->increments('id');
             $table->string('nombre');
             $table->string('email');
-            $table->integer('grupo_id');
+            $table->integer('grupo_id')->unsigned();
             $table->integer('entrega_a')->default(0);
+            $table->foreign('grupo_id')->references('id')->on('grupos')->onDelete('cascade');
             $table->timestamps();
         });
-
-        Schema::table('integrantes', function($table) {
-         $table->foreign('grupo_id')->references('id')->on('grupos')->onDelete('cascade');
-     });
     }
 
     /**

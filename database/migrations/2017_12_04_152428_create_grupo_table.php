@@ -18,13 +18,10 @@ class CreateGrupoTable extends Migration
             $table->string('nombre');
             $table->integer('minimo');
             $table->integer('maximo');
-            $table->integer('user_id');
+            $table->integer('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
-
-        Schema::table('grupos', function($table) {
-           $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-       });
     }
 
     /**
