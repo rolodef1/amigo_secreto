@@ -17,7 +17,7 @@
 
 </head>
 <body>
-<div id="app">
+    <div id="app">
         <nav class="navbar navbar-default navbar-static-top">
             <div class="container">
                 <div class="navbar-header">
@@ -49,6 +49,7 @@
                         <li><a href="{{ route('login') }}">Iniciar sesion</a></li>
                         <li><a href="{{ route('register') }}">Registrarse</a></li>
                         @else
+                        <li><a href="{{ route('grupos.index') }}">Mis grupos</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
                                 {{ Auth::user()->name }} <span class="caret"></span>
@@ -67,7 +68,7 @@
                                 </form>
                             </li>
                         </ul>
-                    </li>
+                    </li>                    
                     @endguest
                 </ul>
             </div>
