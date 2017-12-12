@@ -44,6 +44,7 @@
             .amigo_secreto .info img{
                 width: 70%;
             }
+
         }
         /*Estilos para mobile*/
         @media only screen and (max-width: 767px) {
@@ -67,6 +68,14 @@
             .amigo_secreto .info img{
                 width: 70%;
             }
+            .flotar-derecha{
+                width: 100%;
+                float: right;
+            }
+            .flotar-izquierda{
+                width: 100%;
+                float: left;
+            }
         }
     </style>
 </head>
@@ -75,26 +84,26 @@
         <div class="fila">
             <div style="width: 100%">
                 <div class="santa_fashion">
-                    <img src="{{ asset('images/Home-Listo_02.png') }}">
+                    <img src="{{ asset('images/Home-Listo_02.png') }}" id="img_santa">
                 </div>
                 <div class="amigo_secreto">
                     <div class="fila">
                         <div class="logo">
-                            <img src="{{ asset('images/Home-Listo_03.png') }}">
+                            <img src="{{ asset('images/Home-Listo_03.png') }}" id="img_logo">
                         </div>
                     </div>
                     <div class="fila">
                         <div class="info">
-                            <img class="mensaje" src="{{ asset('images/Home-Listo_05.png') }}">
+                            <img class="mensaje" src="{{ asset('images/Home-Listo_05.png') }}" onclick="show_info();" style="cursor: pointer;">
                         </div>
                     </div>
                     <div class="fila">
                         <div style="text-align: center; width: 50%; float: left;">
-                            <a href="{{ route('login') }}" class="btn btn-default" style="font-size: 1.5em;float: right;">Iniciar sesion
+                            <a href="{{ route('login') }}" class="btn btn-default flotar-derecha" style="font-size: 1.5em;">Iniciar sesión
                             </a>
                         </div>
                         <div style="text-align: center; width: 50%; float: left;">
-                            <a href="{{ route('register') }}" class="btn btn-default" style="font-size: 1.5em; float: left;">Registrarse</a>
+                            <a href="{{ route('register') }}" class="btn btn-default flotar-izquierda" style="font-size: 1.5em;">Registrarse</a>
                         </div>
                     </div>
                 </div>
@@ -104,5 +113,14 @@
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="{{ asset('js/app.js') }}"></script>
+    <script type="text/javascript">
+        function show_info(){
+            var img_santa = document.querySelector('#img_santa');
+            var img_logo = document.querySelector('#img_logo');
+            img_santa.src = "{{ asset('images/banner-mas-informacion.jpg') }}";
+            img_logo.src = "{{ asset('images/banner-mas-informacion2.png') }}";
+            document.querySelector('.info').style.display = 'none';
+        }
+    </script>
 </body>
 </html>

@@ -8,6 +8,11 @@
 				<div class="panel-heading"><h3>Editar grupo</h3>					
 				</div>
 				<div class="panel-body">
+					<div class="alert alert-info" style="text-align: center;">
+						<span>
+							Ingresa un nombre para tu grupo y un precio base para los regalos, no olvides guardar tu nuevo grupo.
+						</span>
+					</div>
 					<div class="row">
 						<div class="col-md-10" style="margin-bottom: 10px;">
 							<a style="float:right;" class="btn btn-success" href="{{ route('integrantes.index',[$grupo->id]) }}" role="button">Ver integrantes</a>
@@ -29,7 +34,7 @@
 						</div>
 
 						<div class="form-group{{ $errors->has('minimo') ? ' has-error' : '' }}">
-							<label for="minimo" class="col-md-4 control-label">Minimo</label>
+							<label for="minimo" class="col-md-4 control-label">Precio base para el regalo (USD)</label>
 							<div class="col-md-6">
 								<input id="minimo" type="number" min="0" class="form-control" name="minimo" value="{{$grupo->minimo}}" required autofocus>
 								@if ($errors->has('minimo'))

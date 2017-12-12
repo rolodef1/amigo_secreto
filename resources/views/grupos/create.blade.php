@@ -6,7 +6,12 @@
 		<div class="col-md-12">
 			<div class="panel panel-default cloud2">
 				<div class="panel-heading"><h3>Crear grupo</h3></div>
-				<div class="panel-body">					
+				<div class="panel-body">
+					<div class="alert alert-info" style="text-align: center;">
+						<span>
+							Ingresa un nombre para tu grupo y un precio base para los regalos, no olvides guardar tu nuevo grupo.
+						</span>
+					</div>					
 					<form class="form-horizontal" method="POST" action="{{ route('grupos.store') }}">
 						{{ csrf_field() }}
 						<div class="form-group{{ $errors->has('nombre') ? ' has-error' : '' }}">
@@ -22,7 +27,7 @@
 						</div>
 
 						<div class="form-group{{ $errors->has('minimo') ? ' has-error' : '' }}">
-							<label for="minimo" class="col-md-4 control-label">Minimo</label>
+							<label for="minimo" class="col-md-4 control-label">Precio base para el regalo (USD)</label>
 							<div class="col-md-6">
 								<input id="minimo" type="number" min="0" class="form-control" name="minimo" value="{{ old('minimo') }}" required autofocus>
 								@if ($errors->has('minimo'))

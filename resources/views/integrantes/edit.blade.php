@@ -12,6 +12,11 @@
 						{{ session('status') }}
 					</div>
 					@endif
+					<div class="alert alert-info" style="text-align: center;">
+						<span>
+							Ingresa el nombre del integrante y su correo electronico, no olvides guardar tu nuevo integrante.
+						</span>
+					</div>
 					<form class="form-horizontal" method="POST" action="{{ route('integrantes.update',[$integrante->id,$integrante->grupo->id]) }}" id="frmUpdate">
 						{{ csrf_field() }}
 						<input name="_method" type="hidden" value="PUT">

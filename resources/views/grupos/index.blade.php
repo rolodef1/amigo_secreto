@@ -8,6 +8,11 @@
 				<div class="panel-heading"><h3>Mis Grupos</h3>					
 				</div>
 				<div class="panel-body">
+					<div class="alert alert-info" style="text-align: center;">
+						<span>
+							Crea un grupo presionando el boton "Nuevo grupo", luego regresa aquí y crea integrantes dentro de tu grupo, esto lo puedes hacer presionando sobre el link "Ver integrantes" junto a cada registro de la lista.
+						</span>
+					</div>
 					<div class="row">
 						<div class="col-md-12" style="margin-bottom: 10px;">
 							<a style="float:right;" class="btn btn-success" href="{{ route('grupos.create') }}" role="button">Nuevo grupo</a>
@@ -18,14 +23,17 @@
 							@if(count($grupos)>0)
 							<tr>
 								<th>Nombre</th>
-								<th>Precio base del regalo</th>
+								<th>Precio base para el regalo</th>
 								<th>Acciones</th>
 							</tr>
 							@foreach($grupos as $grupo)
 							<tr>
 								<td>{{$grupo->nombre}}</td>
 								<td>{{$grupo->minimo}} USD</td>
-								<td><a href="{{ route('grupos.edit',[$grupo->id]) }}">Editar</a></td>
+								<td>
+									<a href="{{ route('grupos.edit',[$grupo->id]) }}">Editar</a> | 
+									<a href="{{ route('integrantes.index',[$grupo->id]) }}">Ver integrantes</a>
+								</td>
 							</tr>
 							@endforeach
 							@else

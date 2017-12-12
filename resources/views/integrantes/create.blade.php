@@ -12,6 +12,11 @@
 						{{ session('status') }}
 					</div>
 					@endif
+					<div class="alert alert-info" style="text-align: center;">
+						<span>
+							Ingresa el nombre del integrante y su correo electronico, no olvides guardar tu nuevo integrante.
+						</span>
+					</div>
 					<form class="form-horizontal" method="POST" action="{{ route('integrantes.store',[$grupo->id]) }}">
 						{{ csrf_field() }}
 						<div class="form-group{{ $errors->has('nombre') ? ' has-error' : '' }}">

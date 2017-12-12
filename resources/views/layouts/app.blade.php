@@ -10,6 +10,9 @@
 
     <title>Amigo secreto ETAFASHION</title>
 
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Bree+Serif" rel="stylesheet">
+
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/styles.css') }}" rel="stylesheet">
@@ -31,8 +34,8 @@
                     </button>
 
                     <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                        Amigo secreto ETAFASHION
+                    <a class="navbar-brand" href="{{ url('/') }}" style="padding-top: 0;height: 55px;">
+                        <img src="{{ asset('images/logo-menu.png') }}"/>
                     </a>
                 </div>
 
@@ -46,7 +49,7 @@
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
                         @guest
-                        <li><a href="{{ route('login') }}">Iniciar sesion</a></li>
+                        <li><a href="{{ route('login') }}">Iniciar sesión</a></li>
                         <li><a href="{{ route('register') }}">Registrarse</a></li>
                         @else
                         <li><a href="{{ route('grupos.index') }}">Mis grupos</a></li>
@@ -74,7 +77,13 @@
             </div>
         </div>
     </nav>
-
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12" style="text-align: center;">
+                <img src="{{ asset('images/header.png') }}" style="width: 100%;">
+            </div>
+        </div>
+    </div>
     @yield('content')
 </div>
 

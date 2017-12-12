@@ -6,11 +6,16 @@
 		<div class="col-md-12">
 			<div class="panel panel-default cloud2">
 				<div class="panel-heading">
-					<div class="col-md-12">
-						<h3>Lista de integrantes del grupo "{{$grupo->nombre}}"</h3>
-					</div>					
+					<h3>Lista de integrantes del grupo "{{$grupo->nombre}}"</h3>				
 				</div>
-				<div class="panel-body">					
+				<div class="panel-body">	
+					@if(!$grupo->sorteado)
+					<div class="alert alert-info" style="text-align: center;">
+						<span>
+							Crea un integrante presionando el boton "Crear integrante", al menos deberás ingresar 3 integrantes para cada grupo.</br>Una vez que todos los integrantes esten registrados podras realizar el sorteo de amigos secretos presionado el boton "Sortear amigos secretos".</br>NOTA: Una vez realizado el sorteo ya no podras ingresar más integrantes para este grupo.
+						</span>
+					</div>	
+					@endif			
 					<div class="row">
 						<div class="col-md-12" style="margin-bottom: 10px;">
 							@if(Auth::check())
@@ -21,7 +26,7 @@
 							<a style="float:right;" class="btn btn-success" href="{{ route('integrantes.create',[$grupo->id]) }}" role="button">Crear integrante</a>
 							@else
 							<div class="alert alert-info">
-							<span>El sorteo de amigo secreto para este grupo ha sido realizado</span>
+								<span>El sorteo de amigo secreto para este grupo ha sido realizado y se ha notificado a cada integrante por correo electronico</span>
 							</div>								
 							@endif
 							@endif
