@@ -21,9 +21,9 @@
 							@if(Auth::check())
 							@if(!$grupo->sorteado)
 							@if(count($grupo->integrantes)>2)
-							<a style="float:left;" class="btn btn-warning" role="button" onclick="sortear();">Sortear amigos secretos</a>
+							<a style="float:left;font-size: 0.9em;" class="btn btn-warning" role="button" onclick="sortear();">Sortear amigos secretos</a>
 							@endif					
-							<a style="float:right;" class="btn btn-success" href="{{ route('integrantes.create',[$grupo->id]) }}" role="button">Crear integrante</a>
+							<a style="float:right;font-size: 0.9em;" class="btn btn-success" href="{{ route('integrantes.create',[$grupo->id]) }}" role="button">Crear integrante</a>
 							@else
 							<div class="alert alert-info" style="text-align: center;">
 								<span>El sorteo de amigo secreto para este grupo ha sido realizado y se ha notificado a cada integrante por correo electronico</span>

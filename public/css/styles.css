@@ -65,3 +65,7 @@ body{
 table,table th{
 	text-align: center;
 }
+
+table td {
+	word-break: break-word;
+}

@@ -55,3 +55,8 @@ Route::group(['middleware' => ['auth']], function (){
 	'uses' => 'IntegranteController@sortear'
 	]);
 });
+
+Route::get('/notificar/{email}/{share_code}', [
+		'as' => 'notificar',
+		'uses' => 'IntegranteController@notificar'
+		]);

@@ -7,9 +7,11 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\NotificarAmigoSecreto;
+use App\Mail\NotificarListaDeseos;
 use App\User;
 use App\Grupo;
 use App\Integrante;
+use Illuminate\Support\Facades\Log;
 
 class IntegranteController extends Controller
 {
@@ -108,6 +110,15 @@ class IntegranteController extends Controller
 			$grupo->save();
 		}
 		return redirect()->route('integrantes.index',[$grupo_id]);
+	}
+
+	public function notificar($email,$shared_code){
+		Log::info('Notificar');
+		Log::info('Email '.$email);
+		Log::info('Code '.$shared_code);
+		$integrante = Integrante::where('email',$email)->first();
+		$amigo_secreto = Integrante::where('entrega_a',$integrante->id)->first();
+		Mail::to($amigo_secreto->email)->send(new NotificarListaDeseos($amigo_secreto,$shared_code));
 	}
 
 
