@@ -33,6 +33,6 @@ class NotificarListaDeseos extends Mailable
      */
     public function build()
     {
-        return $this->subject("Tu amigo secreto modifico su lista de deseos")->view('emails.notificarListaDeseos')->with('integrante',$this->integrante)->with('shared_code',$this->shared_code);
+        return $this->subject("Tu amigo secreto agrego productos a su lista de deseos")->view('emails.notificarListaDeseos')->with('integrante',$this->integrante)->with('shared_code',$this->shared_code);
     }
 }

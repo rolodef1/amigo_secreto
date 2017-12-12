@@ -113,9 +113,6 @@ class IntegranteController extends Controller
 	}
 
 	public function notificar($email,$shared_code){
-		Log::info('Notificar');
-		Log::info('Email '.$email);
-		Log::info('Code '.$shared_code);
 		$integrante = Integrante::where('email',$email)->first();
 		$amigo_secreto = Integrante::where('entrega_a',$integrante->id)->first();
 		Mail::to($amigo_secreto->email)->send(new NotificarListaDeseos($amigo_secreto,$shared_code));
