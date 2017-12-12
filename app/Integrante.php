@@ -15,8 +15,4 @@ class Integrante extends Model
 		return $this->belongsTo('App\Grupo');
 	}
 
-	public function a_quien_regala(){
-		return $this->hasOne('App\Integrante','entrega_a');
-	}
-
 }

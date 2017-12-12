@@ -102,7 +102,7 @@ class IntegranteController extends Controller
 				$integrante = Integrante::find($emisor_id);
 				$integrante->entrega_a = $receptor_id;
 				$integrante->save();
-				Mail::to($integrante->email)->send(new NotificarAmigoSecreto($integrante)); 
+				Mail::to($integrante->email)->send(new NotificarAmigoSecreto($integrante,$grupo)); 
 			}
 			$grupo->sorteado = true;
 			$grupo->save();

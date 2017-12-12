@@ -12,7 +12,7 @@
 					@if(!$grupo->sorteado)
 					<div class="alert alert-info" style="text-align: center;">
 						<span>
-							Crea un integrante presionando el boton "Crear integrante", al menos deberás ingresar 3 integrantes para cada grupo.</br>Una vez que todos los integrantes esten registrados podras realizar el sorteo de amigos secretos presionado el boton "Sortear amigos secretos".</br>NOTA: Una vez realizado el sorteo ya no podras ingresar más integrantes para este grupo.
+							Crea un integrante presionando el boton "Crear integrante", al menos deberás ingresar 3 para poder realizar el sorteo en cada grupo.</br>Una vez que todos los integrantes esten registrados podras realizar el sorteo de amigos secretos presionado el boton "Sortear amigos secretos".</br>NOTA: Una vez realizado el sorteo ya no podras ingresar más integrantes para este grupo.
 						</span>
 					</div>	
 					@endif			
@@ -25,7 +25,7 @@
 							@endif					
 							<a style="float:right;" class="btn btn-success" href="{{ route('integrantes.create',[$grupo->id]) }}" role="button">Crear integrante</a>
 							@else
-							<div class="alert alert-info">
+							<div class="alert alert-info" style="text-align: center;">
 								<span>El sorteo de amigo secreto para este grupo ha sido realizado y se ha notificado a cada integrante por correo electronico</span>
 							</div>								
 							@endif
