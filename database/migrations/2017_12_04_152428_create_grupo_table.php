@@ -17,6 +17,9 @@ class CreateGrupoTable extends Migration
             $table->increments('id');
             $table->string('nombre');
             $table->integer('minimo');
+            $table->date('fecha_entrega')->nullable();
+            $table->time('hora_entrega')->nullable();
+            $table->string('lugar_entrega')->nullable();
             $table->boolean('sorteado')->default(false);
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

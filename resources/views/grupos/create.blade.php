@@ -38,6 +38,42 @@
 							</div>
 						</div>
 
+						<div class="form-group{{ $errors->has('fecha_entrega') ? ' has-error' : '' }}">
+							<label for="fecha_entrega" class="col-md-4 control-label">Fecha de entrega de regalos</label>
+							<div class="col-md-6">
+								<input id="fecha_entrega" type="date" class="form-control" name="fecha_entrega" value="{{ old('fecha_entrega') }}" autofocus>
+								@if ($errors->has('fecha_entrega'))
+								<span class="help-block">
+									<strong>{{ $errors->first('fecha_entrega') }}</strong>
+								</span>
+								@endif
+							</div>
+						</div>
+
+						<div class="form-group{{ $errors->has('hora_entrega') ? ' has-error' : '' }}">
+							<label for="hora_entrega" class="col-md-4 control-label">Hora de entrega de regalos</label>
+							<div class="col-md-6">
+								<input id="hora_entrega" type="time" class="form-control" name="hora_entrega" value="{{ old('hora_entrega') }}" autofocus>
+								@if ($errors->has('hora_entrega'))
+								<span class="help-block">
+									<strong>{{ $errors->first('hora_entrega') }}</strong>
+								</span>
+								@endif
+							</div>
+						</div>
+
+						<div class="form-group{{ $errors->has('lugar_entrega') ? ' has-error' : '' }}">
+							<label for="lugar_entrega" class="col-md-4 control-label">Lugar de entrega de regalos</label>
+							<div class="col-md-6">
+								<textarea id="lugar_entrega" class="form-control" name="lugar_entrega">{{ old('lugar_entrega') }}</textarea>
+								@if ($errors->has('lugar_entrega'))
+								<span class="help-block">
+									<strong>{{ $errors->first('lugar_entrega') }}</strong>
+								</span>
+								@endif
+							</div>
+						</div>
+
 						<div class="form-group">
 							<div class="col-md-6 col-md-offset-5">
 								<button type="submit" class="btn btn-success">

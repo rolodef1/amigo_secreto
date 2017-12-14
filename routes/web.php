@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+	return view('welcome');
 });
 
 Auth::routes();
@@ -21,11 +21,15 @@ Route::get('/home', 'GrupoController@index')->name('home');
 
 Route::group(['middleware' => ['auth']], function (){
 	Route::resource('grupos', 'GrupoController');	
+	Route::get('/grupos/{grupo_id}/configurar', [
+		'as' => 'grupos.configurar',
+		'uses' => 'GrupoController@configurar'
+		]);
 	/*Route::resource('integrantes', 'IntegranteController');*/	
 	Route::get('/integrantes/{grupo_id}/index', [
-	'as' => 'integrantes.index',
-	'uses' => 'IntegranteController@index'
-	]);
+		'as' => 'integrantes.index',
+		'uses' => 'IntegranteController@index'
+		]);
 	Route::get('/integrantes/{grupo_id}/create', [
 		'as' => 'integrantes.create',
 		'uses' => 'IntegranteController@create'
@@ -51,12 +55,12 @@ Route::group(['middleware' => ['auth']], function (){
 		'uses' => 'IntegranteController@destroy'
 		]);
 	Route::get('/integrantes/{grupo_id}/sortear', [
-	'as' => 'integrantes.sortear',
-	'uses' => 'IntegranteController@sortear'
-	]);
+		'as' => 'integrantes.sortear',
+		'uses' => 'IntegranteController@sortear'
+		]);
 });
 
 Route::get('/notificar/{email}/{share_code}', [
-		'as' => 'notificar',
-		'uses' => 'IntegranteController@notificar'
-		]);
+	'as' => 'notificar',
+	'uses' => 'IntegranteController@notificar'
+	]);

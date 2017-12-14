@@ -24,15 +24,17 @@
 							<tr>
 								<th>Nombre</th>
 								<th>Precio base para el regalo</th>
+								<th>Fecha de entrega</th>
 								<th>Acciones</th>
 							</tr>
 							@foreach($grupos as $grupo)
 							<tr>
 								<td>{{$grupo->nombre}}</td>
 								<td>{{$grupo->minimo}} USD</td>
+								<td>{{$grupo->fecha_entrega}} {{$grupo->hora_entrega}}</td>
 								<td>
 									<a href="{{ route('grupos.edit',[$grupo->id]) }}">Editar</a> | 
-									<a href="{{ route('integrantes.index',[$grupo->id]) }}">Ver integrantes</a>
+									<a href="{{ route('integrantes.index',[$grupo->id]) }}">Integrantes</a>
 								</td>
 							</tr>
 							@endforeach

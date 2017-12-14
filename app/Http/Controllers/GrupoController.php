@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\NotificarActualizacionGrupo;
 use App\Grupo;
 use App\User;
 
@@ -21,7 +23,6 @@ class GrupoController extends Controller
 	}
 
 	public function store(Request $request){	
-		//dd($request);
 		$user = Auth::user();
 		$this->validator($request->all())->validate();
 		$grupo = new Grupo($request->all());
@@ -46,7 +47,10 @@ class GrupoController extends Controller
 		$this->validator($request->all())->validate();
 		$grupo = Grupo::find($id);
 		$grupo->fill($request->all());				
-		$grupo->save();				
+		$grupo->save();		
+		foreach ($grupo->integrantes as $integrante) {
+			Mail::to($integrante->email)->send(new NotificarActualizacionGrupo($integrante,$grupo));
+		}		 		
 		return redirect()->route('grupos.index');
 	}
 
@@ -58,9 +62,12 @@ class GrupoController extends Controller
 
 	protected function validator(array $data)
 	{			
+		$data['fecha_hora'] = date('Y-m-d H:i:s');
 		return Validator::make($data, [     
 			'nombre' => "required|max:50",
 			'minimo' => "required|numeric|min:0",
+			'fecha_hora' => "date",
+			'lugar_entrega' => "max:255"
 			]);
 	}
 }

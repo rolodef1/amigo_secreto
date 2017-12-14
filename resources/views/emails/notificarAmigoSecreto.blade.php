@@ -16,6 +16,14 @@
 			<h3>Estas participando dentro del grupo "{{$grupo->nombre}}" y el precio base para el regalo es "${{$grupo->minimo}}"</h3>
 		</p>
 		<p>
+			@if($grupo->fecha_entrega)
+			<h3>La fecha de entrega del regalo es "{{$grupo->fecha_entrega}} {{$grupo->hora_entrega}}"</h3>
+			@endif
+			@if($grupo->lugar_entrega)
+			<h3>El lugar de entrega es "{{$grupo->lugar_entrega}}"</h3>
+			@endif
+		</p>
+		<p>
 			<h3>El sorteo ha sido realizado y tu amigo secreto a quien debes entregar el regalo es "{{$amigo_secreto->nombre}}"</h3>
 		</p>
 		<p>
