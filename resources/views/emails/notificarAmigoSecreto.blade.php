@@ -35,6 +35,9 @@
 		<p>
 			<h4>Una vez que hayas llenado tu lista de deseos tu amigo sera notificado de los productos que podria regalarte, <a href="https://www.etafashion.com/amigo-secreto">ingresa aqui para aprender como llenar tu lista de deseos</a>.</h4>
 		</p>
+		<p>
+			<h3>NOTA: Recuerda que debes crear tu cuenta en ETAFASHION.COM con el correo electrónico al que recibiste este email, caso contrario cuando crees tu lista de deseos tu amigo no podra ser notificado de los productos que te gustan.</h3>
+		</p>
 	</div>
 </body>
 </html>
