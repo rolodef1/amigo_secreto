@@ -18,6 +18,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'GrupoController@index')->name('home');
+Route::get('/notificarUsers', 'UserController@notificarUsers');
 
 Route::group(['middleware' => ['auth']], function (){
 	Route::resource('grupos', 'GrupoController');	
